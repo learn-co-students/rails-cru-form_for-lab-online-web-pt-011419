@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
     def index
-        @songs = Songs.all
+        @songs = Song.all
     end
     
     def show 
@@ -15,7 +15,7 @@ class SongsController < ApplicationController
     def create
         @song = Song.new(song_params)
         @song.save
-        redirect_to song_path(@path)
+        redirect_to song_path(@song)
     end
 
     def edit 
@@ -25,7 +25,7 @@ class SongsController < ApplicationController
     def update 
         @song = Song.find(params[:id])
         @song.update(song_params)
-        reidirect_to song_path(@song)
+        redirect_to song_path(@song)
         
     end
 
